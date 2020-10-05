@@ -45,8 +45,8 @@ for s in search_terms:
             next_page_button = driver.find_element_by_xpath('//*[@id="pagination-more"]')
             next_page_button.click()
         print(f'Found {len(images)} so far')
-    if(not os.path.exists(s)):
-        os.mkdir(s)
+    if(not os.path.exists(f'scraped_images/{s}')):
+        os.mkdir(f'scraped_images/{s}')
     for index, src in enumerate(images):
         print('Downloading ' + str(src))
         urllib.request.urlretrieve(str(src), f'scraped_images/{s}/{index}.png')
